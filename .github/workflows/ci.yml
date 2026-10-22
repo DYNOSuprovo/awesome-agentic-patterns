@@ -1,0 +1,32 @@
+name: CI Verification
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Test Setup CLI
+        run: |
+          python scripts/setup_agent.py --dry-run
+          python scripts/setup_agent.py --target /tmp --all
+          test -f /tmp/.cursorrules
+          test -f /tmp/CLAUDE.md
+          test -f /tmp/AGENTS.md
+          test -f /tmp/mcp.json
+
+      - name: Validate Markdown and JSON
+        run: |
+          python -c "import json; json.load(open('templates/mcp/mcp_config.json'))"
+          echo "All templates and scripts validated successfully."
