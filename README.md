@@ -146,6 +146,7 @@ The **Model Context Protocol (MCP)** standardizes how AI agents interface with e
 | **`mcp-server-sqlite`** | Database | Local SQLite database schema inspection and queries | `uvx mcp-server-sqlite --db-path <path>` |
 | **`mcp-server-github`** | Cloud / DevOps | Manage issues, pull requests, reviews, and CI runs | `npx -y @modelcontextprotocol/server-github` |
 | **`mcp-server-puppeteer`** | Web Automation | Headless browser navigation, screenshots, scraping | `npx -y @modelcontextprotocol/server-puppeteer` |
+| [**agent-qa**](https://vostride.com) | Testing & QA | Runs web, Android and iOS QA with memidex memory and validated learning; accesses local test environments and model APIs. | `npx -y agent-qa mcp` ([MCP setup](https://vostride.com/docs/agent-qa/mcp)) |
 | **`chrome-devtools-mcp`** | DevTools | Web performance, DOM inspection, and console audit | `npx -y @chrome-devtools/mcp-server` |
 | **`mcp-server-memory`** | Long-Term Memory | Persistent knowledge graph across chat sessions | `npx -y @modelcontextprotocol/server-memory` |
 | **`mcp-server-fetch`** | Web & API | Fetch web content and convert HTML cleanly to Markdown | `uvx mcp-server-fetch` |
